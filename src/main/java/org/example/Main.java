@@ -3,15 +3,28 @@ package org.example;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public static void main(String[] args) throws Exception {
+        MySqlSource<String> mySqlSource = MySqlSource.<String>builder()
+                .hostname("yourHostname")
+                .port(yourPort)
+                .databaseList("yourDatabaseName") // set captured database
+                .tableList("yourDatabaseName.yourTableName") // set captured table
+                .username("yourUsername")
+                .password("yourPassword")
+                .deserializer(new JsonDebeziumDeserializationSchema()) // converts SourceRecord to JSON String
+                .build();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        // enable checkpoint
+        env.enableCheckpointing(3000);
+
+        env
+                .fromSource(mySqlSource, WatermarkStrategy.noWatermarks(), "MySQL Source")
+                // set 4 parallel source tasks
+                .setParallelism(4)
+                .print().setParallelism(1); // use parallelism 1 for sink to keep message ordering
+
+        env.execute("Print MySQL Snapshot + Binlog");
     }
 }
