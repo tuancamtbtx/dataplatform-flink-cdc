@@ -22,7 +22,11 @@
             <version>1.18.36</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-postgres-cdc</artifactId>
+            <version>3.2.1</version>
+        </dependency>
         <dependency>
             <groupId>io.github.cdimascio</groupId>
             <artifactId>java-dotenv</artifactId>
@@ -40,12 +44,12 @@
             <version>1.20.0</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
-            <version>1.6.2</version>
-            <scope>compile</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.flink</groupId>-->
+<!--            <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>-->
+<!--            <version>1.6.2</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-mysql-cdc</artifactId>
@@ -56,12 +60,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.27</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table-api-java-bridge_2.12</artifactId>
-            <version>1.13.0</version>
-            <scope>compile</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.flink</groupId>-->
+<!--            <artifactId>flink-table-api-java-bridge_2.12</artifactId>-->
+<!--            <version>1.13.0</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-postgres-cdc</artifactId>
@@ -81,7 +85,12 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-runtime</artifactId>
             <version>${flink.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients</artifactId>
+            <version>1.20.0</version>
         </dependency>
 
     </dependencies>

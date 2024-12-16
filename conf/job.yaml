@@ -1,0 +1,16 @@
+flinkConf:
+  parallelism: 16
+  enableCheckpointing: true
+  checkpointInterval: 1000
+  useEventTime: true
+source:
+  type: inventory
+  hostname: localhost
+  port: 3306
+  database: postgres
+  username: inventory
+  password: postgres
+  tables: app_db.\.*
+sink:
+  type: doris
+  hostname: localhost
