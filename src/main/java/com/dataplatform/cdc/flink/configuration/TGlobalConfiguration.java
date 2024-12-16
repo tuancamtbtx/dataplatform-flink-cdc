@@ -1,4 +1,4 @@
-package com.cdc.flink.configuration;
+package com.dataplatform.cdc.flink.configuration;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;

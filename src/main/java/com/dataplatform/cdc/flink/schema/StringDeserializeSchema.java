@@ -1,4 +1,4 @@
-package com.cdc.flink.schema;
+package com.dataplatform.cdc.flink.schema;
 
 public abstract class StringDeserializeSchema{
 }

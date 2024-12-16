@@ -1,4 +1,4 @@
-package com.cdc.flink.configuration;
+package com.dataplatform.cdc.flink.configuration;
 
 public class ConfigConstants {
     public static final String CONFIG_PREFIX = "trackitime";

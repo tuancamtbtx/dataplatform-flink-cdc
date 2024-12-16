@@ -1,4 +1,4 @@
-package com.cdc.flink.configuration;
+package com.dataplatform.cdc.flink.configuration;
 
 import com.google.common.base.Strings;
 import com.typesafe.config.Config;
