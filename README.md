@@ -2,6 +2,9 @@
 
 DataPlatform-Flink-CDC is a real-time data processing platform that leverages Apache Flink and Change Data Capture (CDC) to process and analyze data streams efficiently. This project aims to provide a scalable and fault-tolerant system for real-time data analytics.
 
+**Architecture**
+![ar](./architecture.gif)
+
 ## Table of Contents
 
 1. [Features](#features)
