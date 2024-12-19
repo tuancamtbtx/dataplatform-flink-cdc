@@ -18,6 +18,7 @@ public class FlinkEnvFactory {
         this.useEventTime = useEventTime;
         this.restartStrategy = restartStrategy;
     }
+
     public static StreamExecutionEnvironment getEnv() {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         return env;

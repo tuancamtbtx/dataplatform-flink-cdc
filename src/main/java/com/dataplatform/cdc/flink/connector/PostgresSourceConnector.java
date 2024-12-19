@@ -4,8 +4,6 @@ import org.apache.flink.cdc.connectors.postgres.PostgreSQLSource;
 import org.apache.flink.cdc.debezium.JsonDebeziumDeserializationSchema;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
-import java.util.Properties;
-
 public class PostgresSourceConnector {
     public static SourceFunction build() {
         SourceFunction<String> sourceFunction = PostgreSQLSource.<String>builder()

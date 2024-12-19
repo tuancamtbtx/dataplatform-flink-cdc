@@ -10,8 +10,8 @@ import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import java.util.concurrent.TimeUnit;
 
 public class PostgresToDorisProcessor {
-    private StreamExecutionEnvironment env;
     private final SourceFunction<String> mySqlSource;
+    private final StreamExecutionEnvironment env;
 
     public PostgresToDorisProcessor() {
         StreamExecutionEnvironment env = FlinkEnvFactory.getEnv();
@@ -27,6 +27,7 @@ public class PostgresToDorisProcessor {
         this.env = factory.createStreamExecutionEnvironment();
         this.mySqlSource = PostgresSourceConnector.build();
     }
+
     public void process() throws Exception {
         env
                 .addSource(this.mySqlSource)
